@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <form action="/sent" method="post">
+        <div id="i1">
+            <br>
+            <br>
+            <p2>User's name:<input type="text" autocomplete="off" autofocus name="name" placeholder="@Surname"></p2>
+            <p>Your Bearer token:<input autocomplete="off" autofocus name="token" placeholder="Token" type="text">
+            <br>
+            <br>
+            <input type="submit" value="sent">
+        </div>
+    </form>
+{% endblock %}
