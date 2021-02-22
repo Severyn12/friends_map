@@ -124,3 +124,4 @@ def register():
     friend_loc = location(constructor(data))
     map_create(friend_loc)
     return render_template('friend_map.html')
+app.run()
