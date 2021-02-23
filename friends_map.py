@@ -13,11 +13,8 @@ from geopy.extra.rate_limiter import RateLimiter
 
 geolocator = Nominatim(user_agent="friends_map.py")
 geocode = RateLimiter(geolocator.geocode, min_delay_seconds=0.3)
-def create_app():
-    '''
-    '''
-    app = Flask(__name__)
-    return app
+
+app = Flask(__name__)
 
 def get_info(surname:str,key:str) -> list:
     '''
@@ -125,4 +122,5 @@ def register():
     if data[1] in (401,404):
         return render_template("fail.html")
     friend_loc = location(constructor(data))
+    map_create(friend_loc)
     return map_create(friend_loc)
