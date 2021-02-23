@@ -100,7 +100,7 @@ def map_create(friends_data:list):
     '''
     mapa = folium.Map(location=[0,0],zoom_start=5)
     mapa.add_child(cords_reader(friends_data))
-    mapa.save('templates/friend_map.html')
+    return mapa._repr_html_()
 
 @app.route("/")
 def index():
@@ -125,5 +125,4 @@ def register():
     if data[1] in (401,404):
         return render_template("fail.html")
     friend_loc = location(constructor(data))
-    map_create(friend_loc)
-    return render_template('friend_map.html')
+    return map_create(friend_loc)
